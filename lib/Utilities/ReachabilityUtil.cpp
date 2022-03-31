@@ -23,8 +23,7 @@ bool liberty::isReachableIntraprocedural(const Instruction *src,
   DominatorTree *dt = &mloops.getAnalysis_DominatorTree(src->getFunction());
   LoopInfo *li = &mloops.getAnalysis_LoopInfo(dst->getFunction());
 
-  return llvm::isPotentiallyReachable(src->getParent(), dst->getParent(), nullptr, dt,
-                                      li);
+  return llvm::isPotentiallyReachable(src->getParent(), dst->getParent(), dt, li);
 }
 
 bool liberty::isReachableIntraprocedural(RelInstsV &srcInsts,
